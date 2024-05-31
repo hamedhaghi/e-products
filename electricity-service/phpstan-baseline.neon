@@ -1,0 +1,6 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Class App\\\\State\\\\ProductStateProvider implements generic interface ApiPlatform\\\\State\\\\ProviderInterface but does not specify its types\\: T$#"
+			count: 1
+			path: src/State/ProductStateProvider.php
