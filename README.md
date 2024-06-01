@@ -32,9 +32,9 @@ This will build and start the Tariff Provider Service and the Electricity App Se
 
 ### How to run
 
-Open the [App](http://localhost/api)
+Open the <a href="http://localhost/api" target="_blank">App</a>
 
-Open the [Provider](http://localhost:8080/api)
+Open the <a href="http://localhost:8080/api">Provider</a>
 
 ### Stopping the Services
 
