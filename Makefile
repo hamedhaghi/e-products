@@ -1,4 +1,4 @@
-.PHONY: up down start-provider provider-shell  migrate-provider seed-provider kill-provider start-app app-shell test-app kill-app
+.PHONY: up down start-provider provider-shell migrate-provider seed-provider kill-provider start-app app-shell test-app kill-app
 
 up: start-provider start-app migrate-provider seed-provider
 
@@ -6,7 +6,7 @@ down: kill-app kill-provider
 
 # provider
 start-provider:
-	@cd ./tariff-provider-service && docker compose up -d --build
+	@cd ./tariff-provider-service && docker compose build --no-cache && docker compose up -d
 
 provider-shell:
 	@cd ./tariff-provider-service && docker compose exec php bash
@@ -24,15 +24,15 @@ kill-provider:
 
 # app
 start-app:
-	@cd ./electricity-service && docker compose up -d --build
+	@cd ./electricity-service && docker compose build --no-cache && docker compose up -d
 
 app-shell:
 	@cd ./electricity-service && docker compose exec app bash
 
-test-app:
-	@cd ./electricity-service && docker exec app vendor/bin/paratest
-
 kill-app:
 	@cd ./electricity-service && docker compose down -v
+
+test-app:
+	@cd ./electricity-service && docker exec app vendor/bin/paratest
 
 ### app

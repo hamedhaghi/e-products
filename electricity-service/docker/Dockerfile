@@ -10,8 +10,6 @@ RUN apt-get update && apt-get install -y \
     pdo_mysql \
     zip
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-COPY ../composer.json composer.lock ./
-RUN composer install --no-scripts --no-autoloader
 COPY .. .
 EXPOSE 9000
-CMD ["php-fpm"]
+CMD bash -c "composer install --no-scripts --no-interaction && php-fpm"
